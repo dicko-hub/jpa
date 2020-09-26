@@ -6,9 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+
 
 @Entity
 public class Employee implements Serializable {
@@ -18,7 +18,18 @@ public class Employee implements Serializable {
 	    private String nom;
 	    private String prenom;
 	    private int age; 
+	    private Adresse adresse;
 	    
+	    
+	    @OneToOne(mappedBy="Employee")
+	    public Adresse getAdresse() {
+			return adresse;
+		}
+
+		public void setAdresse(Adresse adresse) {
+			this.adresse = adresse;
+		}
+		
 		private Entreprise entreprise;
 	    
 	    public String getId() {
