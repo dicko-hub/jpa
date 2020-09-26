@@ -1,13 +1,19 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+
 
 
 @Entity
@@ -20,6 +26,14 @@ public class Employee implements Serializable {
 	    private int age; 
 	    private Adresse adresse;
 	    
+	    @ManyToMany
+	    @JoinTable( name="EMP_PROJ", joinColumns=@JoinColumn(name="EMPLOYEE_ID", referencedColumnName = "id"),
+	    			inverseJoinColumns=@JoinColumn(name="PROJET_ID",referencedColumnName = "id") )
+	    private final List<Projet> projets = new ArrayList<Projet>();
+		
+		public List<Projet> getProjets() {
+	        return projets;
+	    }
 	    
 	    @OneToOne(mappedBy="Employee")
 	    public Adresse getAdresse() {

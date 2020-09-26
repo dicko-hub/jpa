@@ -8,6 +8,7 @@
 	        <class>model.Entreprise</class>
 	        <class>model.Employee</class>
 	        <class>model.Adresse</class>
+	        <class>model.Projet</class>
 	        
 	     	
 	     
