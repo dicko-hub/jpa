@@ -7,6 +7,8 @@
     
 	        <class>model.Entreprise</class>
 	        <class>model.Employee</class>
+	        <class>model.Adresse</class>
+	        
 	     	
 	     
  <properties>

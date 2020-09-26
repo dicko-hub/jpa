@@ -79,6 +79,7 @@ class JpaTest1_1 {
                
 
         em.getTransaction().begin();
+        em.persist(adresse);
         employee.setAdresse(adresse);
         em.persist(employee);
         entreprise.getMembers().add(employee);
